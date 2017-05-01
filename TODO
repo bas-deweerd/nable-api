@@ -1,0 +1,33 @@
+//TODO
+
+
+
+
+public function getSOs() {
+    $this->wsdl = 'https://ncentral.weritech.nl/dms2/services2/ServerEI2?wsdl';
+    $this->soapClient = new Soapclient($this->wsdl, array(
+    'soap_version' => SOAP_1_2,
+    'trace' => TRUE
+        )
+    );
+
+    $params = array(
+        'username' => 'administrator@weritech.nl';
+        'password' => ''; // Hidden for demo purposes
+        'settings' => array(
+            array('key' => 'listSOs', 'value' => "true")
+        )
+    );
+    var_dump($this->soapClient->customerList($params));
+}
+
+public function getCustomers() {
+    $params = array(
+        'username' => 'administrator@weritech.nl';
+        'password' => ''; // Hidden for demo purposes
+        'settings' => array(
+            array('key' => 'listSOs', 'value' => "false")
+        )
+    );
+    var_dump($this->soapClient->customerList($params));
+}
